@@ -116,21 +116,33 @@ const server = http.createServer((req, res) => {
     });
     req.on("end", () => {
       const { name, emile, pass } = JSON.parse(user);
-      const newuser = {
-        id: crypto.randomUUID(),
-        name,
-        emile,
-        pass,
-      };
-      db.users.push(newuser);
-      fs.writeFile("./db.json", JSON.stringify(db), (err) => {
-        if (err) {
-          throw err;
-        } else {
-          res.writeHead(201, { "Content-Type": "application/json" });
-          res.end(JSON.stringify({ massage: "Successfully Add user" }));
-        }
-      });
+      const isExisted = db.user.find(
+        (user) => user.name === name || user.emile === emile
+      );
+
+      if (name === "" && emile === "" && pass === "") {
+        res.writeHead(422, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ massage: "invalid" }));
+      } else if (isExisted) {
+        res.writeHead(409, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ massage: "invalid" }));
+      } else {
+        const newuser = {
+          id: crypto.randomUUID(),
+          name,
+          emile,
+          pass,
+        };
+        db.users.push(newuser);
+        fs.writeFile("./db.json", JSON.stringify(db), (err) => {
+          if (err) {
+            throw err;
+          } else {
+            res.writeHead(201, { "Content-Type": "application/json" });
+            res.end(JSON.stringify({ massage: "Successfully Add user" }));
+          }
+        });
+      }
     });
   }
   // crime
@@ -141,14 +153,14 @@ const server = http.createServer((req, res) => {
     req.on("data", (data) => {
       User = User + data.toString();
     });
-    req.on("end",()=>{
-      let {crime}=JSON.parse(User)
-      db.users.forEach((user)=>{
-        if(user.id==UserId){
-          user.crime=crime
+    req.on("end", () => {
+      let { crime } = JSON.parse(User);
+      db.users.forEach((user) => {
+        if (user.id == UserId) {
+          user.crime = crime;
         }
-      })
-      db.users.push(User)
+      });
+      db.users.push(User);
       fs.writeFile("./db.json", JSON.stringify(db), (err) => {
         if (err) {
           throw err;
@@ -158,7 +170,7 @@ const server = http.createServer((req, res) => {
         }
       });
       console.log(db);
-    })
+    });
   }
 });
 
