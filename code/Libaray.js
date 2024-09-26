@@ -109,7 +109,7 @@ const server = http.createServer((req, res) => {
     console.log(db);
   }
   // add register user
-  else if (req.method === "POST" && req.url == "/api/users") {
+  else if (req.method === "POST" && req.url === "/api/users") {
     let user = "";
     req.on("data", (data) => {
       user = user + data.toString();
@@ -143,6 +143,40 @@ const server = http.createServer((req, res) => {
           }
         });
       }
+    });
+  }
+
+  // rools
+  else if (req.method === "PUT" && req.url.startsWith("/api/users/upgrade")) {
+    const parseurl = url.parse(req.url, true);
+    const UserId = parseurl.query.id;
+    let upgrade = "";
+    req.on("data", (data) => {
+      upgrade = upgrade + data.toString();
+    });
+    console.log(upgrade);
+    req.on("end", () => {
+     ///
+     
+
+      ///
+      let { role } = JSON.parse(upgrade);
+      db.users.forEach((user) => {
+        if (user.id == UserId) {
+          user.role = role;
+        }
+      });
+      db.users.push(upgrade);
+      fs.writeFile("./db.json", JSON.stringify(db, null, 2), (err) => {
+        if (err) {
+          throw err;
+        } else {
+          res.writeHead(201, { "Content-Type": "application/json" });
+
+          // res.write(console.log(JSON.stringify(db)))
+          res.end(JSON.stringify({ massage: "Successfully uppgrad user" }));
+        }
+      });
     });
   }
   // crime
