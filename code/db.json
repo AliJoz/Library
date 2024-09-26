@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Amin Saeedi",
       "username": "01010101",
-      "crime": 0,
+      "crime": 8000,
       "role": "ADMIN"
     },
     {
@@ -26,7 +26,11 @@
       "name": "Ahmad",
       "emile": "Shamlo",
       "pass": 2222
-    }
+    },
+    "{\r\n\"crime\":8000\r\n}",
+    "{\r\n\"crime\":8000\r\n}",
+    "{\r\n\"crime\":8000\r\n}",
+    "{\r\n\"crime\":8000\r\n}"
   ],
   "books": [
     {
