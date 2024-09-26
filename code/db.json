@@ -20,6 +20,12 @@
       "username": "ehs",
       "crime": 0,
       "role": "USER"
+    },
+    {
+      "id": "972448f9-7326-4367-b23c-2c26c990fe55",
+      "name": "Ahmad",
+      "emile": "Shamlo",
+      "pass": 2222
     }
   ],
   "books": [

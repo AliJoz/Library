@@ -109,6 +109,32 @@ const server = http.createServer((req, res) => {
     });
     console.log(db)
   }
+  // add register user 
+  else if(req.method==="POST"&&req.url=="/api/user"){
+    let user="";
+    req.on("data",(data)=>{
+      user=user+data.toString();
+    })
+    req.on("end",()=>{
+      const {name, emile ,pass}=JSON.parse(user);
+      const newuser={
+        id:crypto.randomUUID(),
+        name,
+        emile,
+        pass,
+      }
+      db.users.push(newuser);
+      fs.writeFile("./db.json", JSON.stringify(db), (err) => {
+        if (err) {
+          throw err;
+        } else {
+          res.writeHead(201, { "Content-Type": "application/json" });
+          res.end(JSON.stringify({ massage: "Successfully Add user" }));
+          
+        }
+      });
+    })
+  }
 });
 
 server.listen(4000, () => {
