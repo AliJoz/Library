@@ -4,49 +4,42 @@
       "id": 1,
       "name": "Amin Saeedi",
       "username": "01010101",
-      "crime": 8000,
+      "email": "test@gmail.com",
+      "crime": 0,
       "role": "ADMIN"
     },
     {
       "id": 2,
       "name": "Qadir Yolme",
       "username": "Q_Yolme",
+      "email": "test@gmail.com",
+      "crime": 0,
       "role": "ADMIN"
     },
     {
       "id": 3,
       "name": "Ehsan Mmdi",
       "username": "ehs",
+      "email": "test@gmail.com",
+      "crime": 90000,
+      "role": "ADMIN"
+    },
+    {
+      "id": "ad74d8f6-3e15-44ac-841b-9437e87bb913",
+      "name": "ali",
+      "username": "ali_mmdi",
+      "email": "ali@gmail.com",
       "crime": 0,
-      "role": "admin"
+      "role": "USER"
     },
     {
-      "id": "4",
-      "name": "Ahmad",
-      "emile": "Shamlo",
-      "pass": 2222,
-      "role": "admin"
-    },
-    {
-      "id": "62a8f08b-b9fc-4908-9d49-df074a4dd379",
-      "name": " ",
-      "emile": " ",
-      "pass": ""
-    },
-    {
-      "id": "cd550d7d-99ee-4424-82f6-0ac425d829d0",
-      "name": " ",
-      "emile": " ",
-      "pass": ""
-    },
-    "{\r\n    \r\n}",
-    "{\r\n    \r\n}",
-    "{\r\n    \r\n}",
-    "{\r\n    \"role\":\"admin\"\r\n}",
-    "{\r\n    \"role\":\"admin\"\r\n}",
-    "{\r\n    \"role\":\"admin\"\r\n}",
-    "{\r\n    \"role\":\"admin\"\r\n}",
-    "{\r\n    \"role\":\"admin\"\r\n}"
+      "id": "fc9b7cd0-173c-4f5f-9bc8-ec9c062d7379",
+      "name": "mohammad",
+      "username": "mmd_salahi",
+      "email": "mmd@gmail.com",
+      "crime": 0,
+      "role": "USER"
+    }
   ],
   "books": [
     {
@@ -58,16 +51,9 @@
     },
     {
       "id": 2,
-      "title": "AA",
-      "author": "Shamlo",
-      "price": 2222,
-      "free": 1
-    },
-    {
-      "id": "3",
-      "title": "Tanha",
-      "author": "Shamlo",
-      "price": 220000,
+      "title": "Nodejs Book",
+      "author": "Person 1",
+      "price": 200000,
       "free": 1
     }
   ]

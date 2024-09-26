@@ -145,6 +145,34 @@ const server = http.createServer((req, res) => {
       }
     });
   }
+  // Login
+  else if (req.method === "POST" && req.url === "/api/users/login") {
+    let user = "";
+    req.on("data", (data) => {
+      user += data.toString();
+    });
+
+    req.on("end", () => {
+      const { username, email } = JSON.parse(user);
+
+      const mainUser = db.users.find(
+        (user) => user.username === username && user.email === email
+      );
+console.log(mainUser);
+
+      if (mainUser) {
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.write(
+          JSON.stringify({ username: mainUser.username, email: mainUser.email })
+        );
+        res.end();
+      } else {
+        res.writeHead(401, { "Content-Type": "application/json" });
+        res.write(JSON.stringify({ message: "User Not Found" }));
+        res.end();
+      }
+    });
+  }
 
   // rools
   else if (req.method === "PUT" && req.url.startsWith("/api/users/upgrade")) {
@@ -156,8 +184,7 @@ const server = http.createServer((req, res) => {
     });
     console.log(upgrade);
     req.on("end", () => {
-     ///
-     
+      ///
 
       ///
       let { role } = JSON.parse(upgrade);
