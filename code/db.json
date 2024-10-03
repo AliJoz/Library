@@ -43,13 +43,6 @@
   ],
   "books": [
     {
-      "id": 1,
-      "title": "Golestan",
-      "author": "Sadi",
-      "price": 230000,
-      "free": 0
-    },
-    {
       "id": 2,
       "title": "Nodejs Book",
       "author": "Person 1",

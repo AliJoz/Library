@@ -7,3 +7,7 @@ file.rename("./dbb.json","./db.json",(err)=>{
         console.log("rename file susseful")
     }
 })
+
+// methode unlink   
+// for delete file 
+// exiestsynck  is  fill
