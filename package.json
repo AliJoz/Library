@@ -1,7 +1,7 @@
 {
   "name": "library",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "Experss.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "run": "node Libaray"
@@ -9,5 +9,12 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "fastest-validator": "^1.19.0",
+    "mongodb": "^6.9.0",
+    "mongoose": "^8.7.1"
+  }
 }
